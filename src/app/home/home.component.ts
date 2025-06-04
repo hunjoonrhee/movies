@@ -3,11 +3,12 @@ import { Movie } from '../model/movie.model';
 import { MovieItemComponent } from '../movie-item/movie-item.component';
 import { FavoritesService } from '../services/favorites.service';
 import { MoviesService } from '../services/movies.service';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [MovieItemComponent],
+  imports: [MovieItemComponent, AsyncPipe],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
@@ -15,7 +16,7 @@ export class HomeComponent {
   readonly moviesService = inject(MoviesService);
   readonly favoritesService = inject(FavoritesService);
 
-  readonly movies = this.moviesService.getMovies();
+  readonly movies$ = this.moviesService.getMovies();
 
   isMovieFavorite(movie: Movie) {
     this.favoritesService.toggleFavorite(movie);

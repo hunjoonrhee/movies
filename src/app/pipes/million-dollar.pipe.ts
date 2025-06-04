@@ -1,10 +1,10 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'millionDollor',
+  name: 'millionDollar',
   standalone: true,
 })
-export class MillionDollor implements PipeTransform {
+export class MillionDollar implements PipeTransform {
   transform(value: number | undefined): string {
     const valueStr = value?.toString();
     const hasValueDash = valueStr?.includes('-');

@@ -12,7 +12,6 @@ export class FavoritesService {
       const updatedMovies = [...this.favorites(), movie];
       this.favorites.set(updatedMovies);
     } else {
-      console.log(this.favorites());
       const filteredMovies = this.favorites().filter((m) => m.id !== movie.id);
       this.favorites.set(filteredMovies);
     }

@@ -3,21 +3,13 @@ import { MovieItemComponent } from './movie-item/movie-item.component';
 import { Movie } from './model/movie.model';
 import { MoviesService } from './services/movies.service';
 import { FavoritesService } from './services/favorites.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
 
   templateUrl: 'app.component.html',
-  imports: [MovieItemComponent],
+  imports: [RouterModule],
 })
-export class AppComponent {
-  readonly moviesService = inject(MoviesService);
-  readonly favoritesService = inject(FavoritesService);
-
-  readonly movies = this.moviesService.getMovies();
-
-  isMovieFavorite(movie: Movie) {
-    this.favoritesService.toggleFavorite(movie);
-  }
-}
+export class AppComponent {}
